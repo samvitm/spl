@@ -1,6 +1,6 @@
-int a = 20;
+int a=20;
 string help = "Hello world \" kk \" ";
-float c = a + 89.88;
+float c = a+89.88;
 {
 	int b = 9, h = ( 34.8 +  33 ) * 90 ;
 
