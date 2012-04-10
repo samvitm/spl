@@ -1,37 +1,17 @@
-BUFFER_SIZE = 60
+#New approach
 import re
-tokens = {
-  '\;': "TK_Semicolon",
-  '\,': "TK_Comma",
-  '\(': "TK_LFBK",
-  '\)': "TK_RTBK",
-  '\{': "TK_LFBR",
-  '\}': "TK_RTBR",
-  '\=': "TK_ASSIGN",
-  '\+': "TK_PLUS",
-  '\*': "TK_STAR",
-  '[0-9]+': "TK_INTLIT",
-  '[0-9]+\.[0-9]+': "TK_REAL_LIT",
-  '(?:"[^"]*\\(?:.[^"]*\\)*.[^"]*")|(?:"[^"]*")': "TK_STRINGLIT",
-  'int': "TK_INT ",
-  'float': "TK_FLOAT",
-  'string': "TK_STRING",
-  '[a-zA-Z0-9]?[a-zA-Z0-9]+': "TK_ID",
-}
-f = open('sample.txt')
-tokenlist,st = [],[]
-s = f.read(BUFFER_SIZE)
-while s!='':  
-  for lexeme in re.sub(r'([\+\*\(\)\{\}\;\=\,\"])', ' \g<1> ',s).split():
-    for key in tokens.iterkeys():
-      match = re.match(key,lexeme)
-      if match:
-        tokenlist.append(tokens[key])
-        st.append((len(tokenlist),lexeme,tokens[key]))
-        break
-  s = f.read(BUFFER_SIZE)
-print tokenlist
-print st
-
-
-  
+t = re.compile(r'(?P<TK_Semicolon>;)|(?P<TK_Comma>,)|(?P<TK_LFBK>\()|(?P<TK_RFBK>\))|(?P<TK_LFBR>\{)|(?P<TK_RFBR>\})|(?P<TK_ASSIGN>\=)|(?P<TK_PLUS>\+)|(?P<TK_STAR>\*)|(?P<TK_FLOAT>\d+\.{1}\d+)|(?P<TK_INTLIT>\d+)|(?P<TK_INT>int)|(?P<TK_STRING>string)|(?P<TK_ID>[a-zA-Z][a-zA-Z0-9]*)|(?P<TK_STRLIT>".*")')
+s =  open("sample.txt").read()
+ln = 0
+while len(s):
+  match = t.match(s)
+  if match:
+    print match.group(),match.lastgroup
+    s = s[len(match.group()):]
+  else:
+    if s[0] not in ['\n','\r','\r\n',' ','\t']:
+      print 'Unidentified token : "',s[0],'" at line number ',ln+1
+      #break
+    elif s[0]!=' ':
+      ln+=1
+    s = s[1:]
