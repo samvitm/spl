@@ -1,0 +1,27 @@
+Birla Institute of Technology and Science Pilani 2nd Sem 2011-2012
+IS C342 Structure of Programming Languages Assignments 1 and 2
+
+The first assignment is to build a lexical analyser for the collection of tokens given below. The second assignment is to build a parser for the grammar given. The parser is also required to do some amount of semantic analysis. Both assignments will be evaluated between 20th and 21st April.
+
+1.	Write a Python program that simulates an FSA that accepts the following tokens(the serial numbers can be used to enumerate the tokens):
+1.	TK_Semicolon	: the semicolon
+2.	TK_Comma	: the comma ,
+3.	TK_LFBK	: the left bracket (
+4.	TK_RTBK	: the right bracket )
+5.	TK_LFBR	: the left brace {
+6.	TK_RTBR	:the right brace }
+7.	TK_ASSIGN	: the assignment operator :=
+8.	TK_PLUS	: the + operator
+9.	TK_STAR	:the multiplication operator
+10.	TK_INTLIT	: a string of one or more digits. Any unnecessary leading zeros removed
+11.	TK_REAL_LIT	: a real number which has a decimal point (0.22, 00.15. 3.414 etc)
+12.	TK_STRINGLIT	: a string enclosed in a pair of double quotes, may contain escaped double quotes within
+13.	TK_INT 	: the keyword int
+14.	TK_FLOAT	: the keyword float
+15.	TK_STRING	: the keyword string
+16.	TK_ID	: an identifier name. starts with a letter(a-z,A-Z), can contain numbers, of maximum length 10
+
+
+The LA creates and maintains the symbol table. The symbol table has the following fields:index number, lexeme,TokenID, type and scope and two extra fields which will suitably used by the compiler.
+The LA makes an entry in the ST and fills some of the fields (index, lexeme, token id). The other fields will be filled by the parser at the right time.
+Design and implement the ST, the nextToken() method, and the input buffer.
