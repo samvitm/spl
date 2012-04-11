@@ -1,7 +1,6 @@
 string fun1(int x, string y,){
 int a;
 string b;
-string j = " HE llo \" lsjdlfka  dfd ";
 b = b + y;
 *y;
 }
@@ -18,3 +17,4 @@ j= fun2(3, 3.5,);
 ,
 float z;
 z = fun3();
+,
