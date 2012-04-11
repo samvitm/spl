@@ -1,7 +1,20 @@
-int a  =20;
-float c = a+89.8899;
-{
-         	int b = 9, h = ( 34.8 +  33 ) * 90 ;
-
+string fun1(int x, string y,){
+int a;
+string b;
+string j = " HE llo \" lsjdlfka  dfd ";
+b = b + y;
+*y;
 }
-string help = "Hello \" kk \" + % = world  ";
+float fun2(int I, float j,){
+int k;
+k = I *(j+k);
+*k;
+}
+float fun3(){
+float j;
+j= fun2(3, 3.5,);
+*j;
+}
+,
+float z;
+z = fun3();
