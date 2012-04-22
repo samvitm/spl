@@ -6,7 +6,7 @@ b = b + y;
 }
 float fun2(int I, float j,){
 int k;
-k = I *(j+k);
+k = I *j+k;
 *k;
 }
 float fun3(){
@@ -15,6 +15,9 @@ j= fun2(3, 3.5,);
 *j;
 }
 ,
+{
 float z;
 z = fun3();
+*z;
+}
 ,
