@@ -1,7 +1,6 @@
-from lexer import tokens,st
-import re
+# Samvit Majumdar 2009C6ps814, Namandeep Singh Chugh 2009C6PS569 , Aayush Shrivastava 2009C6PS708P
+from lexer import tokens,tt,symbol_table, print_symbol_table,ParseError
 
-#print tokens
 count = -1
 def nextToken():
   global count
@@ -68,16 +67,16 @@ def parse():
       a = nextToken()
       print 'Next token to parse : ',a
     elif x in terminals:
-      print 'Error - This is a terminal',x,st[count],a
-      exit()
+      error = 'Expected Token : %r got Token : %r - %r at line number %d' %(x,tt[count][2],tt[count][1],tt[count][-1])
+      raise ParseError(error)
     elif  a not in parse_table[x] :
-      print a,x,st[count]
-      print 'Error - No matching entry in parse table'
-      exit()
+      print a,x,tt[count]
+      error = 'Invalid token %r, expected tokens : %r at line number %r' % (a,[ key for key in parse_table[x]],tt[count][-1])
+      raise ParseError(error)
     else:
       rule = str(grammar[parse_table[x][a]])
       print 'Match found!'
-      print a,x,st[count]
+      print a,x,tt[count]
       print 'Applying grammar rule  : ',rule
       #print stack
       stack.pop()
@@ -86,18 +85,14 @@ def parse():
       print stack
       print '-----END----'
     x = stack[-1]
-    print 'Stack top now : ',x
+    print 'Stack top now :',x,'\n','='*40
 
     #print a,'||-- x :',x,'||--stack :',stack
 
-
+print '\n\n'
+print '#'*20,'Starting to parse','#'*80
+print '\n\n'
 parse()
-print 'Parse was successful!'
-
-
-
-
-
-
-
-
+print '\n\n','*'*20,'Parsing Completed!','*'*20,'\n'
+print_symbol_table()
+print '\n\n','*'*20,'Parsing was successful!','*'*20,'\n'

@@ -9,7 +9,7 @@ int k;
 k = I *j+k;
 *k;
 }
-float fun3(){
+float fun3(int u,){
 float j;
 j= fun2(3, 3.5,);
 *j;
@@ -17,7 +17,9 @@ j= fun2(3, 3.5,);
 ,
 {
 float z;
+int p;
 z = fun3();
+p = fun3();
 *z;
 }
 ,

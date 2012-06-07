@@ -10,7 +10,7 @@ The first assignment is to build a lexical analyser for the collection of tokens
 4.	TK_RTBK	: the right bracket )
 5.	TK_LFBR	: the left brace {
 6.	TK_RTBR	:the right brace }
-7.	TK_ASSIGN	: the assignment operator :=
+7.	TK_ASSIGN	: the assignment operator =
 8.	TK_PLUS	: the + operator
 9.	TK_STAR	:the multiplication operator
 10.	TK_INTLIT	: a string of one or more digits. Any unnecessary leading zeros removed
